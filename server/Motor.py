@@ -80,12 +80,12 @@ class Motor(object):
         self.right_Upper_Wheel(duty3)
         self.right_Lower_Wheel(duty4)
 
-    def forward(self):
+    def back(self):
         self.setMotorModel(2000, 2000, 2000, 2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
 
-    def back(self):
+    def forward(self):
         self.setMotorModel(-2000, -2000, -2000, -2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
