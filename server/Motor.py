@@ -2,7 +2,7 @@ import time
 from PCA9685 import PCA9685
 
 
-class Motor:
+class Motor(object):
     def __init__(self):
         self.pwm = PCA9685(0x40, debug=True)
         self.pwm.setPWMFreq(50)
@@ -80,28 +80,51 @@ class Motor:
         self.right_Upper_Wheel(duty3)
         self.right_Lower_Wheel(duty4)
 
+    def forward(self):
+        self.setMotorModel(2000, 2000, 2000, 2000)
+        time.sleep(1)
+        self.setMotorModel(0, 0, 0, 0)
 
-PWM = Motor()
+    def back(self):
+        self.setMotorModel(-2000, -2000, -2000, -2000)
+        time.sleep(1)
+        self.setMotorModel(0, 0, 0, 0)
+
+    def left(self):
+        self.setMotorModel(-500, -500, 2000, 2000)
+        time.sleep(1)
+        self.setMotorModel(0, 0, 0, 0)
+
+    def right(self):
+        self.setMotorModel(2000, 2000, -500, -500)
+        time.sleep(1)
+        self.setMotorModel(0, 0, 0, 0)
 
 
-def loop():
-    PWM.setMotorModel(2000, 2000, 2000, 2000)  # Forward
-    time.sleep(3)
-    PWM.setMotorModel(-2000, -2000, -2000, -2000)  # Back
-    time.sleep(3)
-    PWM.setMotorModel(-500, -500, 2000, 2000)  # Left
-    time.sleep(3)
-    PWM.setMotorModel(2000, 2000, -500, -500)  # Right
-    time.sleep(3)
-    PWM.setMotorModel(0, 0, 0, 0)  # Stop
+# PWM = Motor()
 
 
-def destroy():
-    PWM.setMotorModel(0, 0, 0, 0)
+# def loop():
+#     PWM.setMotorModel(2000, 2000, 2000, 2000)  # Forward
+#     time.sleep(3)
+#     PWM.setMotorModel(-2000, -2000, -2000, -2000)  # Back
+#     time.sleep(3)
+#     PWM.setMotorModel(-500, -500, 2000, 2000)  # Left
+#     time.sleep(3)
+#     PWM.setMotorModel(2000, 2000, -500, -500)  # Right
+#     time.sleep(3)
+#     PWM.setMotorModel(0, 0, 0, 0)  # Stop
+#
+#
+# def destroy():
+#     PWM.setMotorModel(0, 0, 0, 0)
 
 
-if __name__ == '__main__':
-    try:
-        loop()
-    except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-        destroy()
+
+
+
+# if __name__ == '__main__':
+#     try:
+#         loop()
+#     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+#         destroy()
