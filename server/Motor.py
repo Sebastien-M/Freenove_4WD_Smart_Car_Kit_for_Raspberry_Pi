@@ -90,12 +90,12 @@ class Motor(object):
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
 
-    def left(self):
+    def right(self):
         self.setMotorModel(-500, -500, 2000, 2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
 
-    def right(self):
+    def left(self):
         self.setMotorModel(2000, 2000, -500, -500)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
