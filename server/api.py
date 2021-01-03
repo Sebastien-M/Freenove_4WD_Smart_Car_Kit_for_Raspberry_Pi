@@ -1,9 +1,9 @@
 from flask import Flask, abort, Response
-
+from flask_cors import CORS
 from Motor import Motor
 
 api = Flask(__name__)
-
+CORS(api)
 motor = Motor()
 
 OK_RESPONSE = Response(status=200, mimetype='application/json')
