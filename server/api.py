@@ -22,13 +22,13 @@ def back():
 
 
 @api.route('/left', methods=['POST'])
-def left():
+def right():
     motor.left()
     return OK_RESPONSE
 
 
 @api.route('/right', methods=['POST'])
-def right():
+def left():
     motor.right()
     return OK_RESPONSE
 
