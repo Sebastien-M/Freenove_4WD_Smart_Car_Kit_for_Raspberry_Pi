@@ -91,16 +91,11 @@ class Motor(object):
         self.setMotorModel(0, 0, 0, 0)
 
     def right(self):
-        self.setMotorModel(-500, -500, 2000, 2000)
+        self.setMotorModel(-2000, -2000, 2000, 2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
 
     def left(self):
-        self.setMotorModel(2000, 2000, -1000, -1000)
-        time.sleep(1)
-        self.setMotorModel(0, 0, 0, 0)
-
-    def static_left(self):
         self.setMotorModel(2000, 2000, -2000, -2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
