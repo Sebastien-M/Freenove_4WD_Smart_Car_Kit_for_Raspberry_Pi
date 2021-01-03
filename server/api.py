@@ -1,6 +1,6 @@
 from flask import Flask, abort, Response
 
-import Motor
+from Motor import Motor
 
 api = Flask(__name__)
 
