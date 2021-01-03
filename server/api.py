@@ -14,4 +14,4 @@ def forward():
     return Response(status=200, mimetype='application/json')
 
 
-api.run()
+api.run(host="0.0.0.0")
