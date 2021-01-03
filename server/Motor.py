@@ -96,6 +96,11 @@ class Motor(object):
         self.setMotorModel(0, 0, 0, 0)
 
     def left(self):
+        self.setMotorModel(2000, 2000, -1000, -1000)
+        time.sleep(1)
+        self.setMotorModel(0, 0, 0, 0)
+
+    def static_left(self):
         self.setMotorModel(2000, 2000, -2000, -2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
@@ -119,12 +124,3 @@ class Motor(object):
 # def destroy():
 #     PWM.setMotorModel(0, 0, 0, 0)
 
-
-
-
-
-# if __name__ == '__main__':
-#     try:
-#         loop()
-#     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-#         destroy()
