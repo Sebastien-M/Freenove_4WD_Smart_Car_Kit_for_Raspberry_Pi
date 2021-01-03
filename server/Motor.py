@@ -99,23 +99,3 @@ class Motor(object):
         self.setMotorModel(2000, 2000, -2000, -2000)
         time.sleep(1)
         self.setMotorModel(0, 0, 0, 0)
-
-
-# PWM = Motor()
-
-
-# def loop():
-#     PWM.setMotorModel(2000, 2000, 2000, 2000)  # Forward
-#     time.sleep(3)
-#     PWM.setMotorModel(-2000, -2000, -2000, -2000)  # Back
-#     time.sleep(3)
-#     PWM.setMotorModel(-500, -500, 2000, 2000)  # Left
-#     time.sleep(3)
-#     PWM.setMotorModel(2000, 2000, -500, -500)  # Right
-#     time.sleep(3)
-#     PWM.setMotorModel(0, 0, 0, 0)  # Stop
-#
-#
-# def destroy():
-#     PWM.setMotorModel(0, 0, 0, 0)
-
