@@ -4,7 +4,7 @@ import Motor
 
 api = Flask(__name__)
 
-motor: Motor = Motor()
+motor = Motor()
 
 
 @api.route('/forward', methods=['POST'])
