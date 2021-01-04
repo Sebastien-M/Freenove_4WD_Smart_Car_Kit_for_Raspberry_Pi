@@ -6,6 +6,7 @@ class Motor(object):
     def __init__(self):
         self.pwm = PCA9685(0x40, debug=True)
         self.pwm.setPWMFreq(50)
+        self.moving = False
 
     def duty_range(self, duty1, duty2, duty3, duty4):
         if duty1 > 4095:
@@ -81,21 +82,37 @@ class Motor(object):
         self.right_Lower_Wheel(duty4)
 
     def back(self):
+        if self.moving:
+            return
+        self.moving = True
         self.setMotorModel(2000, 2000, 2000, 2000)
         time.sleep(0.5)
         self.setMotorModel(0, 0, 0, 0)
+        self.moving = False
 
     def forward(self):
+        if self.moving:
+            return
+        self.moving = True
         self.setMotorModel(-2000, -2000, -2000, -2000)
         time.sleep(0.5)
         self.setMotorModel(0, 0, 0, 0)
+        self.moving = False
 
     def right(self):
+        if self.moving:
+            return
+        self.moving = True
         self.setMotorModel(-2000, -2000, 2000, 2000)
         time.sleep(0.2)
         self.setMotorModel(0, 0, 0, 0)
+        self.moving = False
 
     def left(self):
+        if self.moving:
+            return
+        self.moving = True
         self.setMotorModel(2000, 2000, -2000, -2000)
         time.sleep(0.2)
         self.setMotorModel(0, 0, 0, 0)
+        self.moving = False
